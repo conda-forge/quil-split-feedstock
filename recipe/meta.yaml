@@ -21,7 +21,7 @@ source:  # Upstream maintains different versions for these, however, the source 
     folder: unused-quil-cli
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -43,6 +43,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
       host:
         - pip
         - python
@@ -89,6 +90,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
       host:
         - pip
         - python
