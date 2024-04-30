@@ -33,6 +33,8 @@ requirements:
     - python
   host:
     - python
+  run:
+    - python
 
 outputs:
   - name: quil
