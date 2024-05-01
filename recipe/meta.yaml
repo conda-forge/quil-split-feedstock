@@ -26,6 +26,11 @@ source:
 
 build:
   number: 1
+  script_env:
+    - RUSTFLAGS="-C PyPy"  # [python_impl == 'pypy']
+  #   # Pass PyPy to rustc
+  #   - PYO3_PYTHON=pypy3  # [python_impl == 'pypy']
+  #   - PYO3_PRINT_CONFIG=1  # [python_impl == 'pypy']
 
 requirements:
   build:
