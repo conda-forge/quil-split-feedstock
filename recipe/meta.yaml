@@ -70,6 +70,8 @@ outputs:
     build:
       noarch: python
     requirements:
+      host:
+        - python
       run:
         - quil {{ py_version }}
     test:
