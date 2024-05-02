@@ -15,7 +15,6 @@ source:
     sha256: a34114c68c0de9865c3665dad2777fbdf0357611a1d7d48c552249194c83d7ed
     patches:
       - fix-syrupy-dependent-test.patch
-      - fix-pypy-pyfunction.patch
   # Adding this to see if that triggers regro-cf-autotick-bot to update the recipe
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 18e6b715652b7083931c54f4e571207cce080ddc8ecd8bfc5980a28de1657d93
