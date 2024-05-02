@@ -150,9 +150,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quil-green.svg)](https://anaconda.org/conda-forge/quil) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil.svg)](https://anaconda.org/conda-forge/quil) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil.svg)](https://anaconda.org/conda-forge/quil) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil.svg)](https://anaconda.org/conda-forge/quil) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-quil--cli-green.svg)](https://anaconda.org/conda-forge/quil-cli) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil-cli.svg)](https://anaconda.org/conda-forge/quil-cli) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil-cli.svg)](https://anaconda.org/conda-forge/quil-cli) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil-cli.svg)](https://anaconda.org/conda-forge/quil-cli) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quil--py-green.svg)](https://anaconda.org/conda-forge/quil-py) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil-py.svg)](https://anaconda.org/conda-forge/quil-py) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil-py.svg)](https://anaconda.org/conda-forge/quil-py) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil-py.svg)](https://anaconda.org/conda-forge/quil-py) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-quil_cli-green.svg)](https://anaconda.org/conda-forge/quil_cli) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil_cli.svg)](https://anaconda.org/conda-forge/quil_cli) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil_cli.svg)](https://anaconda.org/conda-forge/quil_cli) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil_cli.svg)](https://anaconda.org/conda-forge/quil_cli) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quil_py-green.svg)](https://anaconda.org/conda-forge/quil_py) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil_py.svg)](https://anaconda.org/conda-forge/quil_py) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil_py.svg)](https://anaconda.org/conda-forge/quil_py) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil_py.svg)](https://anaconda.org/conda-forge/quil_py) |
 
 Installing quil-split
@@ -165,16 +163,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `quil, quil-cli, quil-py, quil_cli, quil_py` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `quil, quil-py, quil_py` can be installed with `conda`:
 
 ```
-conda install quil quil-cli quil-py quil_cli quil_py
+conda install quil quil-py quil_py
 ```
 
 or with `mamba`:
 
 ```
-mamba install quil quil-cli quil-py quil_cli quil_py
+mamba install quil quil-py quil_py
 ```
 
 It is possible to list all of the versions of `quil` available on your platform with `conda`:
