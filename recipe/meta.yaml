@@ -8,11 +8,14 @@ package:
   name: quil-split
   version: {{ version }}
 
-source:  # Upstream maintains different versions for these, however, the source code is the same  # The concern about maintaining separate recipes was a possible disconnect between the artifacts
+source:
+  # Upstream maintains different versions for these, however, the source code is the same
+  # The concern about maintaining separate recipes was a possible disconnect between the artifacts
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
     sha256: a34114c68c0de9865c3665dad2777fbdf0357611a1d7d48c552249194c83d7ed
     patches:
-      - fix-syrupy-dependent-test.patch  # Adding this to see if that triggers regro-cf-autotick-bot to update the recipe
+      - fix-syrupy-dependent-test.patch
+  # Adding this to see if that triggers regro-cf-autotick-bot to update the recipe
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 18e6b715652b7083931c54f4e571207cce080ddc8ecd8bfc5980a28de1657d93
     folder: unused-quil-py
@@ -22,6 +25,11 @@ source:  # Upstream maintains different versions for these, however, the source 
 
 build:
   number: 1
+  script_env:
+    - RUSTFLAGS="-C PyPy"  # [python_impl == 'pypy']
+  #   # Pass PyPy to rustc
+  #   - PYO3_PYTHON=pypy3  # [python_impl == 'pypy']
+  #   - PYO3_PRINT_CONFIG=1  # [python_impl == 'pypy']
 
 requirements:
   build:
@@ -30,6 +38,8 @@ requirements:
     - maturin >=1.0.0,<2.0.0
     - python
   host:
+    - python
+  run:
     - python
 
 outputs:
@@ -66,6 +76,8 @@ outputs:
     build:
       noarch: python
     requirements:
+      host:
+        - python
       run:
         - quil {{ py_version }}
     test:
