@@ -1,8 +1,7 @@
 {% set name = "quil" %}
-{% set version = "0.26.0" %}
+{% set version = "0.21.6" %}
 
-{% set py_version = "0.10.0" %}
-{% set cli_version = "0.3.0" %}
+{% set py_version = "0.5.7" %}
 
 package:
   name: quil-split
@@ -10,15 +9,12 @@ package:
 
 source:  # Upstream maintains different versions for these, however, the source code is the same  # The concern about maintaining separate recipes was a possible disconnect between the artifacts
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
-    sha256: a34114c68c0de9865c3665dad2777fbdf0357611a1d7d48c552249194c83d7ed
-    patches:
-      - fix-syrupy-dependent-test.patch  # Adding this to see if that triggers regro-cf-autotick-bot to update the recipe
+    sha256: f34bccc8db959596bf3aa708683ba502157046d7ff58f38bbdcef05aa07cc8d7
+    # patches:
+    #   - fix-syrupy-dependent-test.patch  # Adding this to see if that triggers regro-cf-autotick-bot to update the recipe
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
-    sha256: 18e6b715652b7083931c54f4e571207cce080ddc8ecd8bfc5980a28de1657d93
+    sha256: de7899f51189122d1ea4e12f34206d931d1d6c2cfdeaafc77b5ae2422e5d43a8
     folder: unused-quil-py
-  - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
-    sha256: 163c474ae2c153ef05d0e69354a1e60ba472fda25d57fecfe16ca85e7718d82a
-    folder: unused-quil-cli
 
 build:
   number: 0
@@ -81,31 +77,6 @@ outputs:
     test:
       imports:
         - quil
-
-  - name: quil-cli
-    version: {{ cli_version }}
-    script: install-cli.sh  # [unix]
-    script: install-cli.bat  # [win]
-    requirements:
-      build:
-        - {{ compiler('c') }}
-      host:
-        - pip
-        - python
-    test:
-      commands:
-        - quil-cli --help
-
-  - name: quil_cli
-    version: {{ cli_version }}
-    build:
-      noarch: python
-    requirements:
-      run:
-        - quil-cli {{ cli_version }}
-    test:
-      commands:
-        - quil-cli --help
 
 about:
   home: https://github.com/rigetti/quil-rs
