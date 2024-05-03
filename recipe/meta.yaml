@@ -8,11 +8,12 @@ package:
   name: quil-split
   version: {{ version }}
 
-source:  # Upstream maintains different versions for these, however, the source code is the same  # The concern about maintaining separate recipes was a possible disconnect between the artifacts
+source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
     sha256: a34114c68c0de9865c3665dad2777fbdf0357611a1d7d48c552249194c83d7ed
     patches:
-      - fix-syrupy-dependent-test.patch  # Adding this to see if that triggers regro-cf-autotick-bot to update the recipe
+      - fix-syrupy-dependent-test.patch
+
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 18e6b715652b7083931c54f4e571207cce080ddc8ecd8bfc5980a28de1657d93
     folder: unused-quil-py
@@ -36,7 +37,6 @@ outputs:
   - name: quil
     version: {{ py_version }}
     script: install-py.sh  # [unix]
-    # script: install-py-osx-arm64.sh  # [osx and arm64]
     script: install-py.bat  # [win]
     build:
       run_exports:

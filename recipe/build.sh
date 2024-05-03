@@ -6,12 +6,10 @@ set -ex
 maturin build \
   --release \
   --manifest-path=${SRC_DIR}/quil-py/Cargo.toml \
-  --interpreter ${PYTHON} \
   --out ${SRC_DIR}/wheels
 maturin build \
   --release \
   --manifest-path=${SRC_DIR}/quil-cli/Cargo.toml \
-  --interpreter ${PYTHON} \
   --out ${SRC_DIR}/wheels
 
 # Update license file
