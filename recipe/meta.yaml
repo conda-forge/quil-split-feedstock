@@ -30,8 +30,7 @@ requirements:
     - maturin >=1.0.0,<2.0.0
     - python
   host:
-    - python  # [build_platform == target_platform]
-    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - python
 
 outputs:
   - name: quil
@@ -47,15 +46,13 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - pip
-        - python  # [build_platform == target_platform]
+        - python
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
-        - python  # [build_platform == target_platform]
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python
       run:
-        - python  # [build_platform == target_platform]
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python
     test:
       imports:
         - quil
@@ -99,12 +96,11 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - pip
-        - python  # [build_platform == target_platform]
+        - python
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       host:
         - pip
-        - python  # [build_platform == target_platform]
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python
     test:
       commands:
         - quil-cli --help
