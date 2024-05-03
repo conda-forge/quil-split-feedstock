@@ -45,6 +45,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - bash  # [osx and arm64]
         - pip
         - python
       host:

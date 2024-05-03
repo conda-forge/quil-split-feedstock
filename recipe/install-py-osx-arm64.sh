@@ -2,6 +2,11 @@
 
 set -ex
 
+echo "uname -a"
+uname -a
+
+which ${PYTHON}
+
 echo "Test python --version"
 ${PYTHON} --version
 
