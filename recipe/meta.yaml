@@ -35,8 +35,8 @@ requirements:
 outputs:
   - name: quil
     version: {{ py_version }}
-    script: install-py.sh  # [linux or (osx and x86_64)]
-    script: install-py-osx-arm64.sh  # [osx and arm64]
+    script: install-py.sh  # [unix]
+    # script: install-py-osx-arm64.sh  # [osx and arm64]
     script: install-py.bat  # [win]
     build:
       run_exports:
