@@ -44,6 +44,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - python
       host:
         - pip
         - python
@@ -91,6 +92,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - python
       host:
         - pip
         - python
