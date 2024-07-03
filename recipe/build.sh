@@ -3,11 +3,11 @@
 set -ex
 # Try to lock the versions in Cargo.toml
 if [[ $(uname) == Linux ]]; then
-  sed -i -E 's/version\s*=\s*"/version = "=/' "${SRC_DIR}"/quil-py/Cargo.toml
-  sed -i -E 's/version\s*=\s*"/version = "=/' "${SRC_DIR}"/quil-cli/Cargo.toml
+  sed -i -E 's/version\s*=\s*"0.11.0/version = "0.10.0/' "${SRC_DIR}"/quil-py/Cargo.toml
+  sed -i -E 's/version\s*=\s*"0.26.0/version = "=0.26.0/' "${SRC_DIR}"/quil-cli/Cargo.toml
 elif [[ $(uname) == Darwin ]]; then
-  sed -i '' -E 's/version\s*=\s*"/version = "=/' "${SRC_DIR}"/quil-py/Cargo.toml
-  sed -i '' -E 's/version\s*=\s*"/version = "=/' "${SRC_DIR}"/quil-cli/Cargo.toml
+  sed -i '' -E 's/version\s*=\s*"0.11.0/version = "0.10.0/' "${SRC_DIR}"/quil-py/Cargo.toml
+  sed -i '' -E 's/version\s*=\s*"0.26.0/version = "=0.26.0/' "${SRC_DIR}"/quil-cli/Cargo.toml
 else
   echo "Unsupported OS"
   exit 1
