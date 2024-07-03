@@ -22,7 +22,7 @@ source:
     folder: unused-quil-cli
 
 build:
-  number: 1
+  number: 2
 
 requirements:
   build:
