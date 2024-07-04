@@ -28,6 +28,7 @@ requirements:
   build:
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
+    - build
     - maturin >=1.0.0,<2.0.0
     - python
   host:
@@ -70,8 +71,10 @@ outputs:
     build:
       noarch: python
     requirements:
+      host:
+        - {{ pin_subpackage('quil', exact=True) }}
       run:
-        - quil {{ py_version }}
+        - {{ pin_subpackage('quil', exact=True) }}
     test:
       imports:
         - quil
@@ -81,8 +84,10 @@ outputs:
     build:
       noarch: python
     requirements:
+      host:
+        - {{ pin_subpackage('quil', exact=True) }}
       run:
-        - quil {{ py_version }}
+        - {{ pin_subpackage('quil', exact=True) }}
     test:
       imports:
         - quil
