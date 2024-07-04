@@ -19,13 +19,21 @@ fi
 # Build quil-py and quil-cli wheels
 maturin build \
   --release \
+  --manifest-path="${SRC_DIR}"/quil-rs/Cargo.toml \
+  --strip \
+  --cargo-extra-args="+nightly -Zno-index-update" \
+  --out "${SRC_DIR}"/wheels
+maturin build \
+  --release \
   --manifest-path="${SRC_DIR}"/quil-py/Cargo.toml \
   --strip \
+  --cargo-extra-args="+nightly -Zno-index-update" \
   --out "${SRC_DIR}"/wheels
 maturin build \
   --release \
   --manifest-path="${SRC_DIR}"/quil-cli/Cargo.toml \
   --strip \
+  --cargo-extra-args="+nightly -Zno-index-update" \
   --out "${SRC_DIR}"/wheels
 
 # Update license file
