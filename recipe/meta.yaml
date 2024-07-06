@@ -21,7 +21,7 @@ source:
       - fix-syrupy-dependent-test.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
     sha256: 163c474ae2c153ef05d0e69354a1e60ba472fda25d57fecfe16ca85e7718d82a
-    folder: verify-quil-py
+    folder: verify-quil-cli
     patches:
       - fix-syrupy-dependent-test.patch
 
