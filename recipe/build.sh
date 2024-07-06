@@ -18,7 +18,6 @@ cd "${SRC_DIR}"/quil-py
   maturin build \
     --release \
     --strip \
-    --offline \
     --out "${SRC_DIR}"/wheels
 cd ..
 
@@ -27,7 +26,6 @@ cd "${SRC_DIR}"/quil-cli
   maturin build \
     --release \
     --strip \
-    --offline \
     --out "${SRC_DIR}"/wheels
 cd ..
 
