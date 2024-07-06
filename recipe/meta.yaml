@@ -16,10 +16,14 @@ source:
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 18e6b715652b7083931c54f4e571207cce080ddc8ecd8bfc5980a28de1657d93
-    folder: unused-quil-py
+    folder: verify-quil-py
+    patches:
+      - fix-syrupy-dependent-test.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
     sha256: 163c474ae2c153ef05d0e69354a1e60ba472fda25d57fecfe16ca85e7718d82a
-    folder: unused-quil-cli
+    folder: verify-quil-py
+    patches:
+      - fix-syrupy-dependent-test.patch
 
 build:
   number: 2
@@ -28,7 +32,6 @@ requirements:
   build:
     - {{ compiler('rust') }}
     - cargo-bundle-licenses
-    - python-build
     - maturin >=1.0.0,<2.0.0
     - python
   host:
