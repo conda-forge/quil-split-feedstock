@@ -1,8 +1,8 @@
 {% set name = "quil" %}
-{% set version = "0.26.1" %}
+{% set version = "0.27.0" %}
 
-{% set py_version = "0.10.1" %}
-{% set cli_version = "0.3.1" %}
+{% set py_version = "0.11.0" %}
+{% set cli_version = "0.4.0" %}
 
 package:
   name: quil-split
@@ -10,18 +10,17 @@ package:
 
 source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
-    sha256: 4181b6746ce629d03430dfbad1a6fef45f9814d43882528d23e3d4d7257a2efc
+    sha256: 617ee83f244d106f519721422c43e623a5ad5b0f141b991e61c16ee673d7bd0d
     patches:
       - fix-syrupy-dependent-test.patch
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
-    sha256: 302227a478a56738bba2837c06889f93ccc7c60808455978b0a52e86300925f8
-
+    sha256: db48b015a841469e46a2886f7c58483ea9a6d317d7d6e3fdbe9871afed96e5d7
     folder: verify-quil-py
     patches:
       - fix-syrupy-dependent-test.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
-    sha256: 3b2044485cd0cd6f089b396d089ec985aaf2e6e52a444578f237e822318a5fde
+    sha256: 230c9d47d97de296bbb4fdfc22b29b777e724ded42ebd6530bc20b5dc1835539
     folder: verify-quil-cli
     patches:
       - fix-syrupy-dependent-test.patch
