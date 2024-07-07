@@ -16,6 +16,7 @@ source:
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 302227a478a56738bba2837c06889f93ccc7c60808455978b0a52e86300925f8
+
     folder: verify-quil-py
     patches:
       - fix-syrupy-dependent-test.patch
