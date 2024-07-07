@@ -7,6 +7,6 @@ ${PYTHON} -m pip install quil \
   --no-deps \
   --only-binary :all: \
   --no-index \
-  --find-links=${SRC_DIR}/wheels/ \
-  --prefix ${PREFIX} \
+  --find-links="${SRC_DIR}"/wheels/ \
+  --prefix "${PREFIX}" \
   -vv

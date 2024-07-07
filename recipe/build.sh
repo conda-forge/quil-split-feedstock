@@ -2,16 +2,26 @@
 
 set -ex
 
-# Build quil-py and quil-cli wheels
-maturin build \
-  --release \
-  --manifest-path=${SRC_DIR}/quil-py/Cargo.toml \
-  --out ${SRC_DIR}/wheels
-maturin build \
-  --release \
-  --manifest-path=${SRC_DIR}/quil-cli/Cargo.toml \
-  --out ${SRC_DIR}/wheels
+# This attempts to verify that the version numbers for quil-py and quil-cli match with the ones we build
+# All the upstream sources are the same for a given quil-rs version, however, it occurred that only the
+# quil-rs version was updated, causing the actual quil-py distributed to be a different version than
+# advertised. This test is meant to fail on such discrepancies.
+diff -r verify-quil-py/quil-py "${SRC_DIR}"/quil-py
+diff -r verify-quil-cli/quil-cli "${SRC_DIR}"/quil-cli
+
+cd "${SRC_DIR}"/quil-py
+  maturin build \
+    --release \
+    --strip \
+    --out "${SRC_DIR}"/wheels
+cd ..
+
+cd "${SRC_DIR}"/quil-cli
+  maturin build \
+    --release \
+    --strip \
+    --out "${SRC_DIR}"/wheels
+cd ..
 
 # Update license file
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
-
