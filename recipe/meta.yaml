@@ -77,8 +77,6 @@ outputs:
     build:
       noarch: python
     requirements:
-      host:
-        - {{ pin_subpackage('quil', exact=True) }}
       run:
         - {{ pin_subpackage('quil', exact=True) }}
     test:
@@ -90,8 +88,6 @@ outputs:
     build:
       noarch: python
     requirements:
-      host:
-        - {{ pin_subpackage('quil', exact=True) }}
       run:
         - {{ pin_subpackage('quil', exact=True) }}
     test:
@@ -122,7 +118,7 @@ outputs:
       noarch: python
     requirements:
       run:
-        - quil-cli {{ cli_version }}
+        - {{ pin_subpackage('quil-cli', exact=True) }}
     test:
       commands:
         - quil-cli --help
