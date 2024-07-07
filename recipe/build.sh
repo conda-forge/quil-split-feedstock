@@ -9,20 +9,17 @@ set -ex
 diff -r verify-quil-py/quil-py "${SRC_DIR}"/quil-py
 diff -r verify-quil-cli/quil-cli "${SRC_DIR}"/quil-cli
 
-cd "${SRC_DIR}"/quil-rs
-  cargo build
-cd ..
-
 cd "${SRC_DIR}"/quil-py
-  python -m build --no-isolation --wheel --outdir "${SRC_DIR}"/wheels
-cd ..
-
-cd "${SRC_DIR}"/quil-cli
-  cargo build
   maturin build \
     --release \
     --strip \
-    --offline \
+    --out "${SRC_DIR}"/wheels
+cd ..
+
+cd "${SRC_DIR}"/quil-cli
+  maturin build \
+    --release \
+    --strip \
     --out "${SRC_DIR}"/wheels
 cd ..
 
