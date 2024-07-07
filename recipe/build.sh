@@ -9,12 +9,7 @@ set -ex
 diff -r verify-quil-py/quil-py "${SRC_DIR}"/quil-py
 diff -r verify-quil-cli/quil-cli "${SRC_DIR}"/quil-cli
 
-cd "${SRC_DIR}"/quil-rs
-  cargo build
-cd ..
-
 cd "${SRC_DIR}"/quil-py
-  cargo build
   maturin build \
     --release \
     --strip \
@@ -22,7 +17,6 @@ cd "${SRC_DIR}"/quil-py
 cd ..
 
 cd "${SRC_DIR}"/quil-cli
-  cargo build
   maturin build \
     --release \
     --strip \
