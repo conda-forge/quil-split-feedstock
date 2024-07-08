@@ -34,12 +34,8 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - cargo-bundle-licenses
-    - maturin >=1.0.0,<2.0.0
-    - python
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-  host:
-    - python
-  run:
+    - maturin >=1.0.0,<2.0.0
     - python
 
 outputs:
@@ -54,10 +50,8 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-        - pip
-        - python
       host:
+        - pip
         - python
       run:
         - python
@@ -101,8 +95,8 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - pip
       host:
+        - pip
         - python
     test:
       commands:
