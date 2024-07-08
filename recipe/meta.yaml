@@ -104,6 +104,8 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform and arm64]
+        - python  # [build_platform != target_platform and arm64]
       host:
         - pip
         - python
