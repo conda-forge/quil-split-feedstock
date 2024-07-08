@@ -50,10 +50,10 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - python
       host:
         - pip
         - python
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
       run:
         - python
     test:
@@ -96,7 +96,6 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - python
       host:
         - pip
         - python
