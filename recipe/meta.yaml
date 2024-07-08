@@ -54,10 +54,10 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - python
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-      host:
         - pip
+        - python
+      host:
         - python
       run:
         - python
@@ -101,11 +101,9 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-      host:
         - pip
+      host:
         - python
-      run:
     test:
       commands:
         - quil-cli --help
@@ -113,8 +111,6 @@ outputs:
   - name: quil_cli
     version: {{ cli_version }}
     requirements:
-      host:
-        -pip
       run:
         - {{ pin_subpackage('quil-cli', exact=True) }}
     test:
