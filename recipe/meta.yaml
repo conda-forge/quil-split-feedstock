@@ -50,6 +50,7 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
+        - python
       host:
         - pip
         - python
