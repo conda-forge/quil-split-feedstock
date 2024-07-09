@@ -26,7 +26,7 @@ source:
       - fix-syrupy-dependent-test.patch
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -34,9 +34,11 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - cargo-bundle-licenses
-    - maturin >=1.0.0,<2.0.0
-    - python
+    - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+    - maturin >=1.0.0,<2.0.0  # [build_platform != target_platform]
+    - python  # [build_platform != target_platform]
   host:
+    - maturin >=1.0.0,<2.0.0
     - python
 
 outputs:
@@ -51,9 +53,8 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - pip
-        - python
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python  # [build_platform != target_platform]
       host:
         - pip
         - python
@@ -73,26 +74,24 @@ outputs:
 
   - name: quil-py
     version: {{ py_version }}
-    build:
-      noarch: python
     requirements:
       host:
-        - {{ pin_subpackage('quil', exact=True) }}
+        - python
       run:
         - {{ pin_subpackage('quil', exact=True) }}
+        - python
     test:
       imports:
         - quil
 
   - name: quil_py
     version: {{ py_version }}
-    build:
-      noarch: python
     requirements:
       host:
-        - {{ pin_subpackage('quil', exact=True) }}
+        - python
       run:
         - {{ pin_subpackage('quil', exact=True) }}
+        - python
     test:
       imports:
         - quil
@@ -105,9 +104,8 @@ outputs:
       build:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
-        - pip
-        - python
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - python  # [build_platform != target_platform]
       host:
         - pip
         - python
@@ -117,11 +115,9 @@ outputs:
 
   - name: quil_cli
     version: {{ cli_version }}
-    build:
-      noarch: python
     requirements:
       run:
-        - quil-cli {{ cli_version }}
+        - {{ pin_subpackage('quil-cli', exact=True) }}
     test:
       commands:
         - quil-cli --help
