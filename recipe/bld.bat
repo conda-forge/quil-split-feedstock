@@ -5,4 +5,5 @@ call maturin build --release --manifest-path=%SRC_DIR%\quil-cli\quil-cli\Cargo.t
 
 pushd %SRC_DIR%\quil-py
     call cargo-bundle-licenses --format yaml --output %RECIPE_DIR%\THIRDPARTY.yml
+    copy /Y LICENSE %RECIPE_DIR%\LICENSE
 popd

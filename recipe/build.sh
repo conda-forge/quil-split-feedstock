@@ -9,6 +9,7 @@ pushd "${SRC_DIR}"/quil-py/quil-py
     --out "${SRC_DIR}"/wheels
 
   cargo-bundle-licenses --format yaml --output "${RECIPE_DIR}"/THIRDPARTY.yml
+  cp LICENSE "${RECIPE_DIR}"/
 popd
 
 pushd "${SRC_DIR}"/quil-cli/quil-cli
