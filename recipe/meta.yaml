@@ -69,13 +69,13 @@ outputs:
       imports:
         - quil
       source_files:
-        - quil-py/test
+        - quil-py/quil-py/test
       requires:
         - numpy
         - pytest
         - syrupy
       commands:
-        - pytest quil-py/test
+        - pytest quil-py/quil-py/test
 
   - name: quil-py
     version: {{ py_version }}
