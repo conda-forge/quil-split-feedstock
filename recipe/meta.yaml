@@ -1,5 +1,5 @@
 {% set name = "quil" %}
-{% set version = "0.27.2" %}
+{% set version = "0.27.3" %}
 
 {% set py_version = "0.11.3" %}
 {% set cli_version = "0.4.2" %}
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
-    sha256: 69e2cababa29ee7d1b511daebc13cf220e40fbcb1e3670b6e19c57b1e4debca6
+    sha256: 7a804180f4ab616dd4c612bd839b91b441f28eea18940ad048781f4b797386a0
     folder: quil-root
     patches:
       - fix-syrupy-dependent-test.patch
