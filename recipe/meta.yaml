@@ -59,9 +59,9 @@ outputs:
         - {{ compiler('c') }}
         - {{ stdlib("c") }}
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-        - maturin >=1.0.0,<2.0.0
         - python  # [build_platform != target_platform]
       host:
+        - maturin >=1.0.0,<2.0.0
         - pip
         - python
       run:
@@ -113,8 +113,8 @@ outputs:
         - cross-python_{{ target_platform }}  # [build_platform != target_platform]
         - python  # [build_platform != target_platform]
       host:
-        - pip
         - maturin >=1.0.0,<2.0.0
+        - pip
         - python
     test:
       commands:
