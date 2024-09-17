@@ -1,5 +1,5 @@
 {% set name = "quil" %}
-{% set version = "0.28.0" %}
+{% set version = "0.28.1" %}
 
 {% set py_version = "0.12.0" %}
 {% set cli_version = "0.5.0" %}
@@ -10,7 +10,7 @@ package:
 
 source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
-    sha256: 239aee52539ef52cbf705c1ac1132a67cf1fa327c13e4f9359a6288b033dbe57
+    sha256: 758d7e183d87ec7e6abcde268f854812a6c7178e1e14d0523d6b2d2e1f240fc5
     folder: quil-root
     patches:
       - add-pyo3-types.patch
