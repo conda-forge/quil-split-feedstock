@@ -1,8 +1,8 @@
 {% set name = "quil" %}
 {% set version = "0.28.1" %}
 
-{% set py_version = "0.12.0" %}
-{% set cli_version = "0.5.0" %}
+{% set py_version = "0.12.1" %}
+{% set cli_version = "0.5.1" %}
 
 package:
   name: quil-split
@@ -16,12 +16,12 @@ source:
       - fix-syrupy-dependent-test.patch
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
-    sha256: 7cc77eee902f21b78aa669bbbf4140b625beee62cdc17caca53a111d0f677099
+    sha256: 11a28c92c298afa3967308e7db7c20b93c0564b3a906ee4771fb42e2f146d704
     folder: quil-py
     patches:
       - fix-syrupy-dependent-test.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
-    sha256: 0a8dafd71adf769a527f15788570bb4f0ba0d75ce63d6118ae51c7e365febd0f
+    sha256: f32ac90d83aeff860e13962075165759a1a91a14ee437b94e23391690727b454
     folder: quil-cli
     patches:
       - fix-syrupy-dependent-test.patch
