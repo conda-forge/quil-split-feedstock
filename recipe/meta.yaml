@@ -13,18 +13,18 @@ source:
     sha256: 89ac568851e99cd6f14b4fd2154c2de59faca0ca4412c399621c6e2c95653116
     folder: quil-root
     patches:
-      - fix-syrupy-dependent-test.patch
+    #  - fix-syrupy-dependent-test.patch
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 11a28c92c298afa3967308e7db7c20b93c0564b3a906ee4771fb42e2f146d704
     folder: quil-py
     patches:
-      - fix-syrupy-dependent-test.patch
+    #  - fix-syrupy-dependent-test.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
     sha256: f32ac90d83aeff860e13962075165759a1a91a14ee437b94e23391690727b454
     folder: quil-cli
     patches:
-      - fix-syrupy-dependent-test.patch
+    #  - fix-syrupy-dependent-test.patch
 
 build:
   number: 0
