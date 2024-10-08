@@ -14,20 +14,17 @@ source:
     folder: quil-root
     patches:
       - add-pyo3-types.patch
-      - fix-syrupy-dependent-test.patch
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: 0a2e461a08c02e3e56b3d8bc654c350b5d95c0176abf901cadb1a1153866d7ef
     folder: quil-py
     patches:
       - add-pyo3-types.patch
-      - fix-syrupy-dependent-test.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
     sha256: 8675824bf575e3c09d4c5362a4a7d357d99c43758dc5a7ae2c754613d1b38700
     folder: quil-cli
     patches:
       - add-pyo3-types.patch
-      - fix-syrupy-dependent-test.patch
 
 build:
   number: 1
