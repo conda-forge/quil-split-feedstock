@@ -1,8 +1,8 @@
 {% set name = "quil" %}
 {% set version = "0.29.1" %}
 
-{% set py_version = "0.13.0" %}
-{% set cli_version = "0.6.0" %}
+{% set py_version = "0.13.1" %}
+{% set cli_version = "0.6.1" %}
 
 package:
   name: quil-split
@@ -16,12 +16,12 @@ source:
       - add-pyo3-types.patch
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
-    sha256: 0a2e461a08c02e3e56b3d8bc654c350b5d95c0176abf901cadb1a1153866d7ef
+    sha256: ea7e05b18f4a27adfca3168b983e484b6ad672994600894ba1f3b70e0ed04d12
     folder: quil-py
     patches:
       - add-pyo3-types.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
-    sha256: 8675824bf575e3c09d4c5362a4a7d357d99c43758dc5a7ae2c754613d1b38700
+    sha256: 77761596f1690dcffd142235b5497028d8f3d08ce32ab469fbd93903269c5349
     folder: quil-cli
     patches:
       - add-pyo3-types.patch
