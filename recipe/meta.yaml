@@ -1,8 +1,8 @@
 {% set name = "quil" %}
 {% set version = "0.29.2" %}
 
-{% set py_version = "0.13" + version.split('.')[-1] %}
-{% set cli_version = "0.6" + version.split('.')[-1] %}
+{% set py_version = "0.13." + version.split('.')[-1] %}
+{% set cli_version = "0.6." + version.split('.')[-1] %}
 
 package:
   name: quil-split
