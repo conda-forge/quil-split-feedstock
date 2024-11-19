@@ -12,16 +12,25 @@ source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
     sha256: c98874720ee1d573743081c5ad53e03367f2be4faaca656d536f91b1ed38a6e2
     folder: quil-root
+    patches:
+      - add-pyo3-types.patch
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: c794ef086344ded5d32c29aae5ca0ab572065f32b525f309a9531b82544c3805
     folder: quil-py
+    patches:
+      - add-pyo3-types.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
     sha256: dfaf029fee280579bfb0bce281c904756c9061f1a0e27ea33ffb5591d7677ded
     folder: quil-cli
+    patches:
+      - add-pyo3-types.patch
 
 build:
-  number: 0
+  number: 1
+  script_env:
+    # Python 3.13 is newer than PyO3 0.20.x: try to force forward compatibility
+    - PYO3_USE_ABI3_FORWARD_COMPATIBILITY=1  # [py>=313]
 
 requirements:
   build:
