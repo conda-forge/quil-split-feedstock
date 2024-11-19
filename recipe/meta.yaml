@@ -16,8 +16,6 @@ source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
     sha256: c794ef086344ded5d32c29aae5ca0ab572065f32b525f309a9531b82544c3805
     folder: quil-py
-    patches:
-      - add-pyo3-types.patch
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
     sha256: dfaf029fee280579bfb0bce281c904756c9061f1a0e27ea33ffb5591d7677ded
     folder: quil-cli

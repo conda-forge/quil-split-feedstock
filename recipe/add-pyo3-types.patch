@@ -1,7 +1,0 @@
---- quil-py/Cargo.toml.orig    2024-04-23 11:59:41.000000000 -0500
-+++ quil-py/Cargo.toml         2024-04-25 15:24:05.889417585 -0500
-@@ -28,3 +28,3 @@
- numpy = "0.20.0"
--pyo3 = { version = "0.20.3", features = ["indexmap"] }
-+pyo3 = { version = "0.20.3", features = ["indexmap", "types"] }
- rigetti-pyo3 = {version = "0.3.4", features = ["indexmap"]}
