@@ -62,6 +62,7 @@ outputs:
         - pip
         - python
       run:
+        - numpy
         - python
     test:
       imports:
@@ -69,7 +70,6 @@ outputs:
       source_files:
         - quil-py/quil-py/test
       requires:
-        - numpy
         - pytest
         - syrupy
       commands:
