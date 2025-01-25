@@ -1,7 +1,7 @@
 {% set name = "quil" %}
 {% set version = "0.30.0" %}
 
-{% set py_version = "0.15.2 %}
+{% set py_version = "0.15.2" %}
 {% set cli_version = "0.7." + version.split('.')[-1] %}
 
 package:
