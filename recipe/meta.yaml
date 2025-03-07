@@ -1,7 +1,7 @@
 {% set name = "quil" %}
-{% set version = "0.30.0" %}
+{% set version = "0.30.1" %}
 
-{% set py_version = "0.15.2" %}
+{% set py_version = "0.15.3" %}
 {% set cli_version = "0.7." + version.split('.')[-1] %}
 
 package:
@@ -10,18 +10,18 @@ package:
 
 source:
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v{{ version }}.tar.gz
-    sha256: 0d2a45bafd2831d179a3c1e2553f078e96da195c897cabcc26b8c71886f7adf6
+    sha256: 7b705c344287538f93573a2a8f9a7d35b039e3f4344b423ed44f58b82baee1c9
     folder: quil-root
 
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-py/v{{ py_version }}.tar.gz
-    sha256: f01a47dd2e8a27320f694d89edb8730825c00e28ab00c52deafee995da2107ed
+    sha256: bd9a954abc81bfdb8dd2443c5a85857e28b536e07796a03cca34dce7c259a5ac
     folder: quil-py
   - url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-cli/v{{ cli_version }}.tar.gz
-    sha256: 78597809531c463d342416bd9e8cea696d0c251fccacf0427b16dcfd4baff0ce
+    sha256: c9d98481f8ca5b1e744f8404aa787d050295ed8527f37d66f7989d94e388911f
     folder: quil-cli
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
