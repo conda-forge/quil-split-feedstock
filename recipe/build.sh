@@ -6,6 +6,7 @@ pushd "${SRC_DIR}"/quil-rs
   maturin build \
     --release \
     --strip \
+    --compatibility off \
     --out "${SRC_DIR}"/wheels
 popd
 
