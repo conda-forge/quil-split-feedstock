@@ -1,0 +1,179 @@
+schema_version: 1
+
+context:
+  version: "0.37.2"
+  # quil-cli version shipped in the quil-rs tag
+  cli_version: "0.14.2"
+
+  qemu_arch: ${{ host_platform | replace("linux-64", "x86_64") | replace("linux-", "") }}
+  is_qemuable: ${{ (host_platform != build_platform) and (host_platform in ["linux-64", "linux-aarch64", "linux-ppc64le", "linux-riscv64", "linux-s390x"]) }}
+  qemu_pkg: ${{ ('qemu-execve-' ~ qemu_arch ~ '[version=">=11", build_number=">=12"]') if is_qemuable else '' }}
+
+recipe:
+  name: quil-split
+  version: ${{ version }}
+
+source:
+  url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v${{ version }}.tar.gz
+  sha256: 5d04289742bbc0bfef3060e52caf99372978b2784d7842ade74b4dc87ed69350
+
+build:
+  number: 5
+
+outputs:
+  - staging:
+      name: quil-wheels
+    build:
+      script:
+        - pushd quil-rs
+        - maturin build --release --strip --compatibility off --out ../wheels
+        - popd
+        - pushd quil-cli
+        - maturin build --release --strip --compatibility off --out ../wheels
+        - popd
+        - cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+        - if: win
+          then: '%PYTHON% -m pip install quil quil-cli --no-build-isolation --no-deps --only-binary :all: --no-index --find-links=wheels --prefix "%PREFIX%" -vv'
+          else: '"${PYTHON}" -m pip install quil quil-cli --no-build-isolation --no-deps --only-binary :all: --no-index --find-links=wheels --prefix "${PREFIX}" -vv'
+    requirements:
+      build:
+        - ${{ compiler('rust') }}
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - cargo-bundle-licenses
+        - if: build_platform != host_platform
+          then:
+            - cross-python_${{ host_platform }}
+            - maturin >=1.9.4,<2.0.0
+            - python
+      host:
+        - maturin >=1.9.4,<2.0.0
+        - pip
+        - python
+
+  - package:
+      name: quil
+      version: ${{ version }}
+    inherit: quil-wheels
+    build:
+      files:
+        - "**/site-packages/quil/**"
+        - "**/site-packages/quil-*.dist-info/**"
+      dynamic_linking:
+        missing_dso_allowlist:
+          - if: ppc64le
+            then:
+              - "*/ld64.so.2"
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+      host:
+        - python
+      run:
+        - numpy >=1.26
+        - python
+      run_exports:
+        - ${{ pin_subpackage('quil', upper_bound='x.x') }}
+    tests:
+      - if: not is_qemuable
+        then:
+          - python:
+              imports:
+                - quil
+              pip_check: true
+          - files:
+              source:
+                - quil-rs/tests_py/
+            requirements:
+              run:
+                - pytest
+                - syrupy
+                - hypothesis
+            script:
+              - pytest quil-rs/tests_py
+        else:
+          - files:
+              source:
+                - quil-rs/tests_py/
+            requirements:
+              build:
+                - ${{ qemu_pkg }}
+                - sysroot_${{ host_platform }}
+              run:
+                - pip
+                - pytest
+                - syrupy
+                - hypothesis
+            script:
+              - test -n "${QEMU_EXECVE}" || { echo "[FAIL] QEMU_EXECVE not set" >&2; exit 1; }
+              - test -d "${QEMU_LD_PREFIX}" || { echo "[FAIL] QEMU_LD_PREFIX is not a directory" >&2; exit 1; }
+              - '"${QEMU_EXECVE}" "${PREFIX}/bin/python" -c "import quil"'
+              - '"${QEMU_EXECVE}" "${PREFIX}/bin/python" -m pip check'
+              - '"${QEMU_EXECVE}" "${PREFIX}/bin/python" -m pytest quil-rs/tests_py'
+
+  - package:
+      name: quil-cli
+      version: ${{ cli_version }}
+    inherit: quil-wheels
+    build:
+      files:
+        - if: win
+          then: Scripts/quil-cli.exe
+          else: bin/quil-cli
+        - "**/site-packages/quil_cli-*.dist-info/**"
+    requirements:
+      build:
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+      host:
+        - python
+    tests:
+      - if: not is_qemuable
+        then:
+          - script:
+              - quil-cli --help
+        else:
+          - requirements:
+              build:
+                - ${{ qemu_pkg }}
+                - sysroot_${{ host_platform }}
+            script:
+              - '"${QEMU_EXECVE}" "${PREFIX}/bin/quil-cli" --help'
+
+  - package:
+      name: quil_cli
+      version: ${{ cli_version }}
+    requirements:
+      run:
+        - ${{ pin_subpackage('quil-cli', exact=True) }}
+    tests:
+      - if: not is_qemuable
+        then:
+          - script:
+              - quil-cli --help
+        else:
+          - requirements:
+              build:
+                - ${{ qemu_pkg }}
+                - sysroot_${{ host_platform }}
+            script:
+              - '"${QEMU_EXECVE}" "${PREFIX}/bin/quil-cli" --help'
+    about:
+      license_file:
+        - LICENSE
+
+about:
+  homepage: https://github.com/rigetti/quil-rs
+  summary: Quil Parser & Program Builder
+  description: |
+    The quil package provides tools for constructing, manipulating, parsing, and printing Quil programs.
+  license: Apache-2.0
+  license_file:
+    - LICENSE
+    - THIRDPARTY.yml
+  documentation: https://rigetti.github.io/quil-rs/quil.html
+
+extra:
+  recipe-maintainers:
+    - MementoRC
