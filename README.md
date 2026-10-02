@@ -53,6 +53,27 @@ Current build status
                 </a>
               </td>
             </tr><tr>
+              <td>osx_64_python3.13.____cp313</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.13.____cp313" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.14.____cp314</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.14.____cp314" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_python3.15.____cp315</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_python3.15.____cp315" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
               <td>osx_arm64_python3.11.____cpython</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
@@ -64,6 +85,27 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.12.____cpython" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.13.____cp313</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.13.____cp313" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.14.____cp314</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.14.____cp314" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_python3.15.____cp315</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=22241&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/quil-split-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_python3.15.____cp315" alt="variant">
                 </a>
               </td>
             </tr>
@@ -81,9 +123,7 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quil-green.svg)](https://anaconda.org/conda-forge/quil) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil.svg)](https://anaconda.org/conda-forge/quil) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil.svg)](https://anaconda.org/conda-forge/quil) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil.svg)](https://anaconda.org/conda-forge/quil) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quil--cli-green.svg)](https://anaconda.org/conda-forge/quil-cli) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil-cli.svg)](https://anaconda.org/conda-forge/quil-cli) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil-cli.svg)](https://anaconda.org/conda-forge/quil-cli) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil-cli.svg)](https://anaconda.org/conda-forge/quil-cli) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-quil--py-green.svg)](https://anaconda.org/conda-forge/quil-py) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil-py.svg)](https://anaconda.org/conda-forge/quil-py) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil-py.svg)](https://anaconda.org/conda-forge/quil-py) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil-py.svg)](https://anaconda.org/conda-forge/quil-py) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-quil__cli-green.svg)](https://anaconda.org/conda-forge/quil_cli) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil_cli.svg)](https://anaconda.org/conda-forge/quil_cli) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil_cli.svg)](https://anaconda.org/conda-forge/quil_cli) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil_cli.svg)](https://anaconda.org/conda-forge/quil_cli) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-quil__py-green.svg)](https://anaconda.org/conda-forge/quil_py) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/quil_py.svg)](https://anaconda.org/conda-forge/quil_py) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/quil_py.svg)](https://anaconda.org/conda-forge/quil_py) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/quil_py.svg)](https://anaconda.org/conda-forge/quil_py) |
 
 Installing quil-split
 =====================
@@ -102,7 +142,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install quil quil-cli quil-py quil_cli quil_py
+conda install quil quil-cli quil_cli
 ```
 
 </details>
@@ -111,7 +151,7 @@ conda install quil quil-cli quil-py quil_cli quil_py
 <summary>With mamba</summary>
 
 ```
-mamba install quil quil-cli quil-py quil_cli quil_py
+mamba install quil quil-cli quil_cli
 ```
 
 </details>
@@ -121,9 +161,9 @@ mamba install quil quil-cli quil-py quil_cli quil_py
 
 ```
 # for adding to your local project
-pixi add quil quil-cli quil-py quil_cli quil_py
+pixi add quil quil-cli quil_cli
 # for installing globally
-pixi global install quil quil-cli quil-py quil_cli quil_py
+pixi global install quil quil-cli quil_cli
 ```
 
 </details>
