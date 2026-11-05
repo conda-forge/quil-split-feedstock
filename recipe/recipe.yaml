@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.37.2"
+  version: "0.37.3"
   # quil-cli version shipped in the quil-rs tag
   cli_version: "0.14.2"
 
@@ -15,10 +15,10 @@ recipe:
 
 source:
   url: https://github.com/rigetti/quil-rs/archive/refs/tags/quil-rs/v${{ version }}.tar.gz
-  sha256: 5d04289742bbc0bfef3060e52caf99372978b2784d7842ade74b4dc87ed69350
+  sha256: bcaef6c6d241375aa9ecaef3194997cbadad523a2f4512856a3194219f987315
 
 build:
-  number: 5
+  number: 0
 
 outputs:
   - staging:
